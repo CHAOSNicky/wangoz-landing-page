@@ -860,7 +860,7 @@ export function ScrollyDeliveryStage() {
               <img
                 src={deliveryStops[1].imageSrc}
                 alt="Wangoz Farm Grocery"
-                className="w-68 h-68 sm:w-84 sm:h-84 md:w-[400px] md:h-[400px] lg:w-[450px] lg:h-[450px] object-contain drop-shadow-[0_26px_52px_rgba(0,0,0,0.26)] transition-transform"
+                className="w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] md:w-[480px] md:h-[480px] lg:w-[540px] lg:h-[540px] object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.28)] transition-transform"
               />
             </div>
 
@@ -910,9 +910,9 @@ export function ScrollyDeliveryStage() {
         {/* ── Finale Brand Overlay (Order Arrived & Delivered Celebration) ── */}
         <div
           id="finale-brand-overlay"
-          className="absolute inset-0 z-50 flex items-center justify-center p-3 sm:p-5 md:p-8 bg-neutral-900/40 backdrop-blur-md opacity-0 pointer-events-none"
+          className="absolute inset-0 z-50 flex items-center justify-center p-3 sm:p-6 md:p-8 bg-neutral-900/40 backdrop-blur-md opacity-0 pointer-events-none"
         >
-          <div className="relative max-w-md sm:max-w-lg w-full bg-white/95 backdrop-blur-3xl rounded-[2.2rem] sm:rounded-[2.5rem] p-6 sm:p-8 pb-7 sm:pb-8 text-center flex flex-col items-center border border-white/90 shadow-[0_36px_90px_-15px_rgba(43,95,224,0.35),0_16px_36px_rgba(0,0,0,0.1)] overflow-hidden max-h-[92vh] overflow-y-auto no-scrollbar">
+          <div className="relative w-[92%] sm:w-full max-w-sm sm:max-w-md bg-white/95 backdrop-blur-3xl rounded-[2rem] sm:rounded-[2.5rem] p-5 sm:p-7 text-center flex flex-col items-center border border-white/90 shadow-[0_36px_90px_-15px_rgba(43,95,224,0.35),0_16px_36px_rgba(0,0,0,0.1)]">
             {/* Ambient specular background gradients */}
             <div className="absolute -top-24 -left-24 w-52 h-52 rounded-full bg-blue-500/15 blur-3xl pointer-events-none" />
             <div className="absolute -bottom-24 -right-24 w-52 h-52 rounded-full bg-amber-400/20 blur-3xl pointer-events-none" />
@@ -921,48 +921,48 @@ export function ScrollyDeliveryStage() {
             <img
               src={logoImg}
               alt="Wangoz"
-              className="w-36 sm:w-48 md:w-52 mb-2.5 drop-shadow-[0_16px_32px_rgba(43,95,224,0.32)] hover:scale-105 transition-transform duration-300 relative z-10"
+              className="w-32 sm:w-40 mb-2 sm:mb-2.5 drop-shadow-[0_16px_32px_rgba(43,95,224,0.32)] hover:scale-105 transition-transform duration-300 relative z-10"
             />
 
             {/* Luminous Status Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 sm:py-1.5 rounded-full bg-gradient-to-r from-emerald-500/10 via-emerald-500/15 to-emerald-500/10 border border-emerald-500/30 text-emerald-800 text-[11px] sm:text-xs font-black uppercase tracking-wider mb-2 shadow-xs relative z-10">
-              <span className="relative flex h-2.5 w-2.5">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 sm:py-1.5 rounded-full bg-gradient-to-r from-emerald-500/10 via-emerald-500/15 to-emerald-500/10 border border-emerald-500/30 text-emerald-800 text-[10px] sm:text-xs font-black uppercase tracking-wider mb-2 shadow-xs relative z-10">
+              <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
               </span>
               <span>Order Arrived • Delivered in 14 mins!</span>
             </div>
 
             {/* Headline */}
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-neutral-900 mb-1 leading-tight tracking-tight relative z-10">
+            <h2 className="text-xl sm:text-2xl font-black text-neutral-900 mb-1 leading-tight tracking-tight relative z-10">
               Ready to{' '}
               <span className="bg-gradient-to-r from-[#2B5FE0] to-[#6366F1] bg-clip-text text-transparent">
                 Wangoz?
               </span>
             </h2>
 
-            <p className="text-[11px] sm:text-xs text-neutral-600 mb-3 max-w-sm leading-relaxed relative z-10">
+            <p className="text-[11px] sm:text-xs text-neutral-600 mb-3 max-w-xs leading-relaxed relative z-10">
               Hot meals, daily groceries & urgent care supplies delivered directly to your doorstep.
             </p>
 
             {/* 3 Sleek Micro-Metrics */}
-            <div className="grid grid-cols-3 gap-2 w-full mb-3.5 relative z-10">
-              <div className="bg-neutral-50/90 border border-neutral-200/70 rounded-2xl py-2 px-1 sm:px-2 flex flex-col items-center shadow-2xs">
-                <span className="text-[9px] sm:text-[10px] text-neutral-500 font-bold uppercase tracking-wider">Speed</span>
+            <div className="grid grid-cols-3 gap-2 w-full mb-3.5 sm:mb-4 relative z-10">
+              <div className="bg-neutral-50/90 border border-neutral-200/70 rounded-xl sm:rounded-2xl py-1.5 sm:py-2 px-1 flex flex-col items-center shadow-2xs">
+                <span className="text-[9px] text-neutral-500 font-bold uppercase tracking-wider">Speed</span>
                 <span className="text-xs sm:text-sm font-black text-neutral-900">⚡ 14 Mins</span>
               </div>
-              <div className="bg-neutral-50/90 border border-neutral-200/70 rounded-2xl py-2 px-1 sm:px-2 flex flex-col items-center shadow-2xs">
-                <span className="text-[9px] sm:text-[10px] text-neutral-500 font-bold uppercase tracking-wider">Status</span>
+              <div className="bg-neutral-50/90 border border-neutral-200/70 rounded-xl sm:rounded-2xl py-1.5 sm:py-2 px-1 flex flex-col items-center shadow-2xs">
+                <span className="text-[9px] text-neutral-500 font-bold uppercase tracking-wider">Status</span>
                 <span className="text-xs sm:text-sm font-black text-emerald-600">✓ At Door</span>
               </div>
-              <div className="bg-neutral-50/90 border border-neutral-200/70 rounded-2xl py-2 px-1 sm:px-2 flex flex-col items-center shadow-2xs">
-                <span className="text-[9px] sm:text-[10px] text-neutral-500 font-bold uppercase tracking-wider">Delivery</span>
+              <div className="bg-neutral-50/90 border border-neutral-200/70 rounded-xl sm:rounded-2xl py-1.5 sm:py-2 px-1 flex flex-col items-center shadow-2xs">
+                <span className="text-[9px] text-neutral-500 font-bold uppercase tracking-wider">Delivery</span>
                 <span className="text-xs sm:text-sm font-black text-[#2B5FE0]">₹0 Free</span>
               </div>
             </div>
 
-            {/* Primary CTA Button: Download App Only */}
-            <div className="w-full flex justify-center mb-3 relative z-10">
+            {/* Primary CTA Button: BIG Download App */}
+            <div className="w-full flex justify-center mb-2.5 sm:mb-3 relative z-10">
               <button
                 id="finale-download-btn"
                 onClick={() => {
@@ -970,9 +970,9 @@ export function ScrollyDeliveryStage() {
                     'Welcome to Wangoz! First delivery promo code WANGOZFREE applied to your app.'
                   );
                 }}
-                className="w-full max-w-xs py-3 sm:py-3.5 px-6 rounded-full font-black text-white bg-gradient-to-r from-[#2B5FE0] to-[#4375F5] hover:from-[#1E3FA0] hover:to-[#2B5FE0] shadow-lg shadow-blue-500/35 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2.5 text-xs sm:text-sm cursor-pointer"
+                className="w-full max-w-xs sm:max-w-sm py-3.5 sm:py-4 px-7 sm:px-9 rounded-full font-black text-white bg-gradient-to-r from-[#2B5FE0] via-[#3B6FF0] to-[#5584F8] hover:from-[#1E3FA0] hover:to-[#2B5FE0] shadow-[0_10px_26px_rgba(43,95,224,0.40)] hover:shadow-[0_14px_32px_rgba(43,95,224,0.50)] hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2.5 text-sm sm:text-base cursor-pointer"
               >
-                <Smartphone size={16} strokeWidth={2.5} />
+                <Smartphone size={20} strokeWidth={2.5} />
                 <span>Download App</span>
               </button>
             </div>
@@ -983,7 +983,7 @@ export function ScrollyDeliveryStage() {
                 const overlay = document.getElementById('finale-brand-overlay');
                 if (overlay) gsap.to(overlay, { opacity: 0, pointerEvents: 'none', duration: 0.3 });
               }}
-              className="text-xs font-semibold text-neutral-400 hover:text-neutral-700 transition-colors cursor-pointer relative z-10"
+              className="py-1 px-4 text-[11px] sm:text-xs font-semibold text-neutral-400 hover:text-neutral-700 transition-colors cursor-pointer relative z-10"
             >
               Continue scrolling to footer ↓
             </button>

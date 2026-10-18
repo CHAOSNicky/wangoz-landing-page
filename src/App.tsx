@@ -10,7 +10,7 @@ import {
   Zap,
   Clock,
   MapPin,
-  Sparkles,
+  Smartphone,
 } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -257,7 +257,7 @@ function App() {
           />
 
           <h2
-            className="cta-animate text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6"
+            className="cta-animate text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 sm:mb-6 px-4"
             style={{ color: 'var(--color-brand-black)', letterSpacing: '-0.03em' }}
           >
             Ready to{' '}
@@ -265,7 +265,7 @@ function App() {
           </h2>
 
           <p
-            className="cta-animate text-lg md:text-xl max-w-xl mb-10"
+            className="cta-animate text-base sm:text-lg md:text-xl max-w-xl mb-8 sm:mb-10 px-4"
             style={{ color: 'var(--color-text-secondary)', lineHeight: 1.7 }}
           >
             Download the app and get your first delivery free.
@@ -273,16 +273,16 @@ function App() {
             Because great things shouldn't keep you waiting.
           </p>
 
-          <div className="cta-animate flex items-center gap-4 flex-wrap justify-center">
+          <div className="cta-animate flex flex-col sm:flex-row items-center gap-3.5 sm:gap-4 w-full max-w-xs sm:max-w-none justify-center px-4">
             <button
-              className="btn-primary text-lg"
+              className="btn-primary w-full sm:w-auto py-3.5 sm:py-4 px-8 sm:px-10 text-base sm:text-lg font-black shadow-lg shadow-blue-500/35 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2.5"
               id="cta-start-btn"
               onClick={() => alert('Welcome to Wangoz! First delivery promo code WANGOZFREE applied.')}
             >
-              Get Started <Sparkles size={20} strokeWidth={2.5} />
+              Download App <Smartphone size={20} strokeWidth={2.5} />
             </button>
             <button
-              className="btn-secondary text-lg"
+              className="btn-secondary w-full sm:w-auto py-3.5 sm:py-4 px-8 text-base sm:text-lg font-bold flex items-center justify-center gap-2 hover:scale-105 active:scale-95 transition-all"
               id="cta-replay-btn"
               onClick={handleScrollToJourney}
             >
