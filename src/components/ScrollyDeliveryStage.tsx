@@ -11,10 +11,6 @@ import {
   type DeliveryStop,
 } from '../data/deliveryStops';
 import {
-  Flame,
-  Leaf,
-  ShieldCheck,
-  Check,
   ArrowRight,
   Smartphone,
 } from 'lucide-react';
@@ -31,20 +27,6 @@ gsap.registerPlugin(ScrollTrigger, MotionPathPlugin, useGSAP);
 ─────────────────────────────────────────────────────────────── */
 const ROAD_PATH_D =
   'M 300,200 L 300,380 C 300,650 165,680 165,950 C 165,1280 435,1370 435,1700 C 435,2030 165,2120 165,2450 C 165,2730 300,2760 300,3050';
-
-/* ── Icon helper ────────────────────────────────────────────── */
-function getIconComponent(iconName: string) {
-  switch (iconName) {
-    case 'flame':
-      return Flame;
-    case 'leaf':
-      return Leaf;
-    case 'shield-check':
-      return ShieldCheck;
-    default:
-      return Check;
-  }
-}
 
 /* ── Glassmorphic Service Feature Card ──────────────────────── */
 interface ServiceFeatureCardProps {
@@ -619,36 +601,6 @@ export function ScrollyDeliveryStage() {
     },
     { scope: masterRef }
   );
-
-  // Jump to specific milestone on click using Lenis smooth scroll
-  const scrollToMilestone = (stepIdx: number) => {
-    // Targets matching milestone dwell zones in the timeline:
-    // 0: Start (0.01)
-    // 1: Restaurant dwell (0.15)
-    // 2: Grocery dwell (0.37)
-    // 3: Medical dwell (0.59)
-    // 4: Delivered / House dwell (0.82)
-    const targets = [0.01, 0.15, 0.37, 0.59, 0.82];
-    const targetFrac = targets[stepIdx] ?? 0;
-
-    let targetScrollY = 0;
-    const st = masterTlRef.current?.scrollTrigger;
-    if (st) {
-      targetScrollY = st.start + (st.end - st.start) * targetFrac;
-    } else if (masterRef.current) {
-      const rect = masterRef.current.getBoundingClientRect();
-      const masterTop = rect.top + window.scrollY;
-      const masterHeight = masterRef.current.offsetHeight - window.innerHeight;
-      targetScrollY = masterTop + masterHeight * targetFrac;
-    }
-
-    const lenis = (window as any).__lenis;
-    if (lenis) {
-      lenis.scrollTo(targetScrollY, { duration: 1.2 });
-    } else {
-      window.scrollTo({ top: targetScrollY, behavior: 'smooth' });
-    }
-  };
 
   return (
     <div
