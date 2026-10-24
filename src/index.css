@@ -140,15 +140,20 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
   text-align: center;
-  padding: 1.5rem 1.25rem 2rem 1.25rem;
+  padding: 1rem 1.25rem 1.5rem;
   overflow: hidden;
 }
 
 @media (min-width: 640px) {
   .hero-section {
-    padding: 2.5rem 2rem 2.5rem 2rem;
+    padding: 2rem 2rem 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-section {
+    padding: 2.5rem 2rem 2.5rem;
   }
 }
 

@@ -821,7 +821,7 @@ export function ScrollyDeliveryStage() {
             {/* Stop 1 — Restaurant (Road curve at X = 165px, Y = 950px, Bigger 3D Logo) */}
             <div
               id="store-restaurant"
-              className="absolute top-[930px] -translate-y-1/2 left-[27.5%] -translate-x-1/2 z-20 flex flex-col items-center pointer-events-none opacity-0 select-none"
+              className="absolute top-[930px] -translate-y-1/2 left-[27.5%] -translate-x-1/2 z-20 flex flex-col items-center pointer-events-none opacity-0 select-none w-max"
             >
               <div className="mb-2 sm:mb-2.5 flex items-center gap-1.5 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-white/95 backdrop-blur-md shadow-md border border-orange-200">
                 <span className="w-2 h-2 rounded-full bg-[#FF6B35] animate-pulse" />
@@ -832,7 +832,7 @@ export function ScrollyDeliveryStage() {
               <img
                 src={deliveryStops[0].imageSrc}
                 alt="Wangoz Hot Kitchens"
-                className="w-56 h-56 sm:w-68 sm:h-68 md:w-80 md:h-80 lg:w-88 lg:h-88 object-contain drop-shadow-[0_22px_45px_rgba(0,0,0,0.24)] transition-transform"
+                className="w-56 h-56 sm:w-68 sm:h-68 md:w-80 md:h-80 lg:w-88 lg:h-88 max-w-none object-contain drop-shadow-[0_22px_45px_rgba(0,0,0,0.24)] transition-transform"
               />
             </div>
             <ServiceFeatureCard
@@ -849,7 +849,7 @@ export function ScrollyDeliveryStage() {
             />
             <div
               id="store-grocery"
-              className="absolute top-[1680px] -translate-y-1/2 left-[72.5%] -translate-x-1/2 z-20 flex flex-col items-center pointer-events-none opacity-0 select-none"
+              className="absolute top-[1680px] -translate-y-1/2 left-[72.5%] -translate-x-1/2 z-20 flex flex-col items-center pointer-events-none opacity-0 select-none w-max"
             >
               <div className="mb-2 sm:mb-2.5 flex items-center gap-1.5 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-white/95 backdrop-blur-md shadow-md border border-emerald-200">
                 <span className="w-2 h-2 rounded-full bg-[#2ECC71] animate-pulse" />
@@ -860,14 +860,14 @@ export function ScrollyDeliveryStage() {
               <img
                 src={deliveryStops[1].imageSrc}
                 alt="Wangoz Farm Grocery"
-                className="w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] md:w-[480px] md:h-[480px] lg:w-[540px] lg:h-[540px] object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.28)] transition-transform"
+                className="w-56 h-56 sm:w-68 sm:h-68 md:w-80 md:h-80 lg:w-88 lg:h-88 max-w-none object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.28)] transition-transform"
               />
             </div>
 
             {/* Stop 3 — Medical (Road curve at X = 165px, Y = 2450px, Bigger 3D Logo) */}
             <div
               id="store-medical"
-              className="absolute top-[2430px] -translate-y-1/2 left-[27.5%] -translate-x-1/2 z-20 flex flex-col items-center pointer-events-none opacity-0 select-none"
+              className="absolute top-[2430px] -translate-y-1/2 left-[27.5%] -translate-x-1/2 z-20 flex flex-col items-center pointer-events-none opacity-0 select-none w-max"
             >
               <div className="mb-2 sm:mb-2.5 flex items-center gap-1.5 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-white/95 backdrop-blur-md shadow-md border border-teal-200">
                 <span className="w-2 h-2 rounded-full bg-[#14B8A6] animate-pulse" />
@@ -878,7 +878,7 @@ export function ScrollyDeliveryStage() {
               <img
                 src={deliveryStops[2].imageSrc}
                 alt="Wangoz 24/7 Meds"
-                className="w-56 h-56 sm:w-68 sm:h-68 md:w-80 md:h-80 lg:w-88 lg:h-88 object-contain drop-shadow-[0_22px_45px_rgba(0,0,0,0.24)] transition-transform"
+                className="w-56 h-56 sm:w-68 sm:h-68 md:w-80 md:h-80 lg:w-88 lg:h-88 max-w-none object-contain drop-shadow-[0_22px_45px_rgba(0,0,0,0.24)] transition-transform"
               />
             </div>
             <ServiceFeatureCard

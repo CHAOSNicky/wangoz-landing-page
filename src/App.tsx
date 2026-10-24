@@ -174,9 +174,9 @@ function App() {
         ═══════════════════════════════════════════════════════ */}
         <section
           ref={heroRef}
-          className="hero-section flex flex-col items-center justify-between min-h-[100dvh] pt-4 sm:pt-6 pb-4 sm:pb-6 px-4 relative overflow-hidden"
+          className="hero-section"
         >
-          {/* Top Center: Wangoz Very Big Brand Logo */}
+          {/* ─── Zone 1: Logo at top ─── */}
           <div className="w-full flex justify-center items-center pt-2 sm:pt-4 shrink-0">
             <img
               ref={heroLogoRef}
@@ -189,17 +189,17 @@ function App() {
             />
           </div>
 
-          {/* Middle Flow: Headline, Subtitle, and CTA Buttons spread equally down to the bottom on mobile */}
-          <div className="flex-1 w-full max-w-2xl flex flex-col justify-evenly sm:justify-start items-center text-center py-2 sm:py-0 sm:mt-6">
+          {/* ─── Zone 2: Content centered in remaining space ─── */}
+          <div className="flex-1 w-full max-w-2xl flex flex-col justify-center items-center text-center">
             {/* Headline */}
-            <h1 ref={heroTitleRef} className="hero-tagline px-2 sm:mb-3">
+            <h1 ref={heroTitleRef} className="hero-tagline px-2 mb-2 sm:mb-3">
               Anything. Delivered.
               <br />
               <span className="hero-tagline-accent">In Minutes.</span>
             </h1>
 
             {/* Subtitle */}
-            <p ref={heroSubRef} className="hero-subtitle px-4 max-w-lg leading-relaxed text-neutral-700 text-sm sm:text-base md:text-lg sm:mb-6">
+            <p ref={heroSubRef} className="hero-subtitle px-4 max-w-lg leading-relaxed text-neutral-700 text-sm sm:text-base md:text-lg mb-5 sm:mb-7">
               Food, groceries, and medicines — delivered to your door faster than
               you can say <strong>"Wangoz"</strong>.
             </p>
@@ -226,8 +226,8 @@ function App() {
             </div>
           </div>
 
-          {/* Bottom Center: Trust Stats Bar pinned cleanly at the bottom */}
-          <div ref={heroStatsRef} className="w-full flex justify-center pb-2 sm:pb-4 sm:mt-auto pt-2 sm:pt-8 shrink-0">
+          {/* ─── Zone 3: Stats bar at bottom ─── */}
+          <div ref={heroStatsRef} className="w-full flex justify-center pb-2 sm:pb-4 pt-4 sm:pt-6 shrink-0">
             <StatsBar />
           </div>
         </section>
