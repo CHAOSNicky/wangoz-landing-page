@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, type CSSProperties } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
@@ -28,21 +28,26 @@ gsap.registerPlugin(ScrollTrigger, MotionPathPlugin, useGSAP);
 const ROAD_PATH_D =
   'M 300,200 L 300,380 C 300,650 165,680 165,950 C 165,1280 435,1370 435,1700 C 435,2030 165,2120 165,2450 C 165,2730 300,2760 300,3050';
 
-/* ── Glassmorphic Service Feature Card ──────────────────────── */
+/* ── Floating Frosted-Glass Tooltip Card ──────────────────────── */
 interface ServiceFeatureCardProps {
   id: string;
   stop: DeliveryStop;
   className?: string;
+  side?: 'left' | 'right';
+  style?: CSSProperties;
 }
 
-function ServiceFeatureCard({ id, stop, className = '' }: ServiceFeatureCardProps) {
-  // Tailored concise feature chips per service
-  const chips =
+function ServiceFeatureCard({ id, stop, className = '', side, style }: ServiceFeatureCardProps) {
+  // Resolved side: grocery is on right of road so card is on left; restaurant & medical on left so card on right
+  const cardSide = side ?? (stop.id === 'grocery' ? 'left' : 'right');
+
+  // Curated essential hook per service
+  const hookText =
     stop.id === 'restaurant'
-      ? ['⚡ 15-Min Prep', '🔥 Zero Surge Fee']
+      ? '⚡ 15-Min Prep'
       : stop.id === 'grocery'
-        ? ['🥬 Farm-Fresh', '⚡ 15-Min Slots']
-        : ['🛡️ Verified Rx', '⚡ 24/7 Dispatch'];
+        ? '🥬 Farm-Fresh'
+        : '🛡️ Verified Rx';
 
   const shortTitle =
     stop.id === 'restaurant'
@@ -51,68 +56,58 @@ function ServiceFeatureCard({ id, stop, className = '' }: ServiceFeatureCardProp
         ? 'Daily Fresh Groceries'
         : 'Urgent Care & Meds';
 
-  const cleanCategory =
-    stop.badge.split('•')[1]?.trim() || stop.badge;
-
   return (
     <div
       id={id}
-      className={`service-feature-card absolute z-30 bg-white/95 backdrop-blur-2xl rounded-2xl sm:rounded-3xl p-2.5 sm:p-4 border border-white/90 opacity-0 pointer-events-none transition-all duration-300 box-border overflow-hidden ${className}`}
+      className={`service-feature-card absolute z-30 bg-white/95 backdrop-blur-2xl rounded-[18px] px-3.5 pt-3.5 pb-3.5 sm:px-4 sm:pt-4 sm:pb-4 border border-white/90 opacity-0 pointer-events-none transition-all duration-300 box-border flex flex-col items-center gap-2 sm:gap-2.5 ${className}`}
       style={{
-        boxShadow: `0 18px 40px -10px rgba(0, 0, 0, 0.12), 0 8px 24px -6px ${stop.accentColor}28`,
-        borderTop: `3px solid ${stop.accentColor}`,
+        boxShadow: `0 16px 36px -8px rgba(0, 0, 0, 0.12), 0 4px 16px -4px ${stop.accentColor}25`,
+        ...style,
       }}
     >
-      {/* Top Header Pill */}
-      <div className="flex items-center justify-between gap-1 mb-1 sm:mb-1.5">
+      {/* Speech bubble pointer notch: 100% outside the card, pointing towards the store */}
+      {cardSide === 'right' ? (
         <span
-          className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[8.5px] sm:text-[11px] font-black uppercase tracking-wider truncate"
+          aria-hidden="true"
+          className="absolute -left-2 top-1/2 -translate-y-1/2 w-0 h-0 border-y-[6px] border-y-transparent border-r-[8px] border-r-white/95 drop-shadow-[-2px_0_2px_rgba(0,0,0,0.06)] pointer-events-none"
+        />
+      ) : (
+        <span
+          aria-hidden="true"
+          className="absolute -right-2 top-1/2 -translate-y-1/2 w-0 h-0 border-y-[6px] border-y-transparent border-l-[8px] border-l-white/95 drop-shadow-[2px_0_2px_rgba(0,0,0,0.06)] pointer-events-none"
+        />
+      )}
+
+      {/* 1. Essential Hook Tag placed in the middle with blinking dot */}
+      <div className="w-full flex items-center justify-center">
+        <span
+          className="inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[9.5px] sm:text-[10.5px] font-extrabold tracking-wide uppercase shadow-2xs"
           style={{
-            backgroundColor: `${stop.accentColor}15`,
+            backgroundColor: `${stop.accentColor}18`,
             color: stop.accentColor,
-            border: `1.5px solid ${stop.accentColor}35`,
+            border: `1px solid ${stop.accentColor}35`,
           }}
         >
-          <span
-            className="w-1.5 h-1.5 rounded-full shrink-0 animate-ping"
-            style={{ backgroundColor: stop.accentColor }}
-          />
-          <span className="truncate">{cleanCategory}</span>
-        </span>
-        <span className="text-[8.5px] sm:text-[10px] font-bold text-neutral-400 uppercase tracking-wider flex items-center gap-1 shrink-0">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-          Live
+          <span className="w-1.5 h-1.5 rounded-full shrink-0 animate-pulse" style={{ backgroundColor: stop.accentColor }} />
+          <span>{hookText}</span>
         </span>
       </div>
 
-      {/* Concise Title */}
-      <h3 className="text-xs sm:text-base font-black text-neutral-900 mb-1.5 leading-snug tracking-tight">
+      {/* 2. Bold, Crisp Title placed in the middle */}
+      <h3 className="w-full text-center text-xs sm:text-[13px] md:text-sm font-extrabold text-neutral-900 leading-snug tracking-tight">
         {shortTitle}
       </h3>
 
-      {/* Feature Chips Row */}
-      <div className="flex flex-wrap items-center gap-1 sm:gap-1.5 mb-2 sm:mb-2.5">
-        {chips.map((chip, idx) => (
-          <span
-            key={idx}
-            className="inline-flex items-center px-1.5 py-0.5 sm:px-2 rounded-md text-[8.5px] sm:text-[10px] font-bold text-neutral-700 bg-neutral-100/90 border border-neutral-200/70 shadow-2xs whitespace-nowrap"
-          >
-            {chip}
-          </span>
-        ))}
+      {/* 3. Sleek Floating Pill Explore CTA with ample breathing room and no overlap */}
+      <div className="w-full flex items-center justify-center pt-0.5">
+        <button
+          type="button"
+          className="inline-flex items-center justify-center gap-1.5 px-4.5 py-1.5 sm:px-5 sm:py-1.5 rounded-full font-bold text-[10.5px] sm:text-[11px] text-neutral-800 bg-neutral-100/90 hover:bg-neutral-200/90 border border-neutral-200/80 shadow-2xs transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] cursor-pointer"
+        >
+          <span>Explore</span>
+          <ArrowRight size={11} strokeWidth={2.5} className="text-neutral-500" />
+        </button>
       </div>
-
-      {/* Sleek CTA Button */}
-      <button
-        className="w-full py-1.5 sm:py-2 px-2.5 sm:px-3 rounded-full font-black text-[11px] sm:text-xs text-white flex items-center justify-center gap-1 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
-        style={{
-          background: `linear-gradient(135deg, ${stop.accentColor} 0%, ${stop.accentColor}ee 100%)`,
-          boxShadow: `0 6px 18px -2px ${stop.accentColor}55`,
-        }}
-      >
-        <span>Explore {stop.id === 'restaurant' ? 'Menu' : stop.id === 'grocery' ? 'Aisles' : 'Care'}</span>
-        <ArrowRight size={12} strokeWidth={2.8} />
-      </button>
     </div>
   );
 }
@@ -538,7 +533,11 @@ export function ScrollyDeliveryStage() {
         'leg4-start'
       );
 
-      // Rider travels to doorstep — stops very near BEFORE the house at 0.943 (Y = 2880px)
+      // Rider travels to doorstep — on mobile comes closer to the house (0.968 vs 0.943)
+      const isMobile = typeof window !== 'undefined' && window.innerWidth < 640;
+      const houseRiderEnd = isMobile ? 0.968 : 0.943;
+      const houseCameraTargetY = isMobile ? 2995 : 2965;
+
       masterTl.to(
         '#rider-unit',
         {
@@ -548,7 +547,7 @@ export function ScrollyDeliveryStage() {
             alignOrigin: [0.5, 0.5],
             autoRotate: true,
             start: 0.821,
-            end: 0.943,
+            end: houseRiderEnd,
           },
           duration: 2.5,
           ease: 'power1.inOut',
@@ -560,7 +559,7 @@ export function ScrollyDeliveryStage() {
       masterTl.to(
         '#camera-world',
         {
-          y: () => getCameraY(2965, 0.46),
+          y: () => getCameraY(houseCameraTargetY, 0.46),
           duration: 2.5,
           ease: 'power1.inOut',
         },
@@ -854,14 +853,22 @@ export function ScrollyDeliveryStage() {
             <ServiceFeatureCard
               id="card-restaurant"
               stop={deliveryStops[0]}
-              className="top-[950px] -translate-y-1/2 right-2 sm:right-4 md:right-5 w-[46%] sm:w-[42%] max-w-[230px] sm:max-w-[280px] md:max-w-[300px]"
+              side="right"
+              className="right-2.5 sm:right-6 md:right-8 lg:right-10 w-[156px] sm:w-[176px] md:w-[196px]"
+              style={{
+                top: '874px',
+              }}
             />
 
             {/* Stop 2 — Grocery (Road curve at SVG X=435/600=72.5%, Y=1700px) */}
             <ServiceFeatureCard
               id="card-grocery"
               stop={deliveryStops[1]}
-              className="top-[1700px] -translate-y-1/2 left-2 sm:left-4 md:left-5 w-[46%] sm:w-[42%] max-w-[230px] sm:max-w-[280px] md:max-w-[300px]"
+              side="left"
+              className="left-2.5 sm:left-6 md:left-8 lg:left-10 w-[156px] sm:w-[176px] md:w-[196px]"
+              style={{
+                top: '1624px',
+              }}
             />
             <div
               id="store-grocery"
@@ -902,7 +909,11 @@ export function ScrollyDeliveryStage() {
             <ServiceFeatureCard
               id="card-medical"
               stop={deliveryStops[2]}
-              className="top-[2450px] -translate-y-1/2 right-2 sm:right-4 md:right-5 w-[46%] sm:w-[42%] max-w-[230px] sm:max-w-[280px] md:max-w-[300px]"
+              side="right"
+              className="right-2.5 sm:right-6 md:right-8 lg:right-10 w-[156px] sm:w-[176px] md:w-[196px]"
+              style={{
+                top: '2374px',
+              }}
             />
 
             {/* Stop 4 — Customer House (Road end at SVG X=300/600=50%, Y=3050px) */}
