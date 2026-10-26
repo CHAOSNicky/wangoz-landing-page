@@ -817,6 +817,9 @@ export function ScrollyDeliveryStage() {
                 id="rider-scooter-image"
                 src={riderImg}
                 alt="Wangoz Delivery Scooter"
+                width={96}
+                height={96}
+                decoding="async"
                 style={{
                   width: '100%',
                   height: '100%',
@@ -847,6 +850,9 @@ export function ScrollyDeliveryStage() {
               <img
                 src={deliveryStops[0].imageSrc}
                 alt="Wangoz Hot Kitchens"
+                width={352}
+                height={352}
+                decoding="async"
                 className="w-56 h-56 sm:w-68 sm:h-68 md:w-80 md:h-80 lg:w-88 lg:h-88 max-w-none object-contain drop-shadow-[0_22px_45px_rgba(0,0,0,0.24)] transition-transform"
               />
             </div>
@@ -884,6 +890,9 @@ export function ScrollyDeliveryStage() {
               <img
                 src={deliveryStops[1].imageSrc}
                 alt="Wangoz Farm Grocery"
+                width={352}
+                height={352}
+                decoding="async"
                 className="w-56 h-56 sm:w-68 sm:h-68 md:w-80 md:h-80 lg:w-88 lg:h-88 max-w-none object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.28)] transition-transform"
               />
             </div>
@@ -903,6 +912,9 @@ export function ScrollyDeliveryStage() {
               <img
                 src={deliveryStops[2].imageSrc}
                 alt="Wangoz 24/7 Meds"
+                width={352}
+                height={352}
+                decoding="async"
                 className="w-56 h-56 sm:w-68 sm:h-68 md:w-80 md:h-80 lg:w-88 lg:h-88 max-w-none object-contain drop-shadow-[0_22px_45px_rgba(0,0,0,0.24)] transition-transform"
               />
             </div>
@@ -925,6 +937,9 @@ export function ScrollyDeliveryStage() {
               <img
                 src={houseImg}
                 alt="Customer House - Your Doorstep"
+                width={420}
+                height={420}
+                decoding="async"
                 className="w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[420px] lg:h-[420px] object-contain drop-shadow-[0_26px_50px_rgba(0,0,0,0.25)] transition-transform"
               />
               <div className="mt-0 flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md shadow-md border border-blue-200">
@@ -948,6 +963,9 @@ export function ScrollyDeliveryStage() {
               <img
                 src={logoImg}
                 alt="Wangoz"
+                width={192}
+                height={72}
+                decoding="async"
                 className="w-42 sm:w-48 drop-shadow-[0_12px_24px_rgba(43,95,224,0.24)] hover:scale-105 transition-transform duration-300"
               />
             </div>

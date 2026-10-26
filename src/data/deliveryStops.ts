@@ -1,10 +1,10 @@
-import heroImg from '../assets/hero.png';
-import logoImg from '../assets/wangoz-logo.png';
-import restaurantImg from '../assets/restaurant.png';
-import groceryImg from '../assets/grocery.png';
-import medicalImg from '../assets/medical.png';
-import riderImg from '../assets/rider.png';
-import houseImg from '../assets/house.png';
+import heroImg from '../assets/hero.webp';
+import logoImg from '../assets/wangoz-logo.webp';
+import restaurantImg from '../assets/restaurant.webp';
+import groceryImg from '../assets/grocery.webp';
+import medicalImg from '../assets/medical.webp';
+import riderImg from '../assets/rider.webp';
+import houseImg from '../assets/house.webp';
 
 export type CardPlacement = 'top-right' | 'bottom-left' | 'top-left' | 'bottom-right';
 

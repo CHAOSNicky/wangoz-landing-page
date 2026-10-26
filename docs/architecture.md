@@ -56,14 +56,14 @@ wangoz-landing-page/
 │   ├── main.tsx                # Application mounting point
 │   ├── App.tsx                 # Top-level composition & layout
 │   ├── index.css               # Global tokens, resets, Tailwind import, helper classes
-│   ├── assets/                 # High-resolution raster images (PNG) & SVGs
-│   │   ├── wangoz-logo.png
-│   │   ├── rider.png
-│   │   ├── restaurant.png
-│   │   ├── grocery.png
-│   │   ├── medical.png
-│   │   ├── house.png
-│   │   ├── hero.png            # Unused in current live render
+│   ├── assets/                 # High-resolution optimized raster images (WebP) & SVGs
+│   │   ├── wangoz-logo.webp
+│   │   ├── rider.webp
+│   │   ├── restaurant.webp
+│   │   ├── grocery.webp
+│   │   ├── medical.webp
+│   │   ├── house.webp
+│   │   ├── hero.webp           # Unused in current live render
 │   │   └── vite.svg            # Default template asset
 │   ├── components/
 │   │   ├── ScrollyDeliveryStage.tsx  # Interactive road & GSAP timeline

@@ -182,6 +182,10 @@ function App() {
               ref={heroLogoRef}
               src={logoImg}
               alt="Wangoz"
+              width={420}
+              height={157}
+              fetchPriority="high"
+              decoding="async"
               className="hero-logo w-[76vw] sm:w-[50vw] md:w-[38vw] max-w-[420px] min-w-[260px]"
               style={{
                 filter: 'drop-shadow(0 14px 36px rgba(43,95,224,0.28))',
@@ -249,6 +253,10 @@ function App() {
           <img
             src={houseImg}
             alt="Delivery to your door"
+            width={360}
+            height={309}
+            loading="lazy"
+            decoding="async"
             className="cta-animate mb-8 hover:scale-105 transition-transform duration-500"
             style={{
               width: 'clamp(220px, 32vw, 360px)',
@@ -305,6 +313,10 @@ function App() {
           <img
             src={logoImg}
             alt="Wangoz"
+            width={110}
+            height={41}
+            loading="lazy"
+            decoding="async"
             style={{ width: 110, margin: '0 auto 0.75rem', opacity: 0.7 }}
           />
           © {new Date().getFullYear()} Wangoz. All rights reserved. Fast. Fresh. Reliable.

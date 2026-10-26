@@ -51,7 +51,7 @@ The entire landing page is structured as a continuous vertical journey on a vibr
 ### 3.1 Hero Section
 - **Location**: `src/App.tsx` (`hero-section`)
 - **Key Elements**:
-  - **3D Logo**: `src/assets/wangoz-logo.png` rendered with deep blue drop-shadow.
+  - **3D Logo**: `src/assets/wangoz-logo.webp` rendered with deep blue drop-shadow.
   - **Headings**: Fluid typography using `clamp(2.1rem, 6.2vw, 5rem)` with gradient accent on "In Minutes."
   - **Primary CTA (`#hero-order-btn`)**: Smooth-scrolls directly to the finale section (`#finale`).
   - **Secondary CTA (`#hero-explore-btn`)**: Smooth-scrolls to the scrollytelling container (`#delivery-experience`).
@@ -83,7 +83,7 @@ The entire landing page is structured as a continuous vertical journey on a vibr
      - Feature card: Verified Rx, 24/7 Dispatch.
   4. **Customer House Doorstep**:
      - Road termination at Y = 3050px (`X = 300px`).
-     - Rider stops right before the house porch at Y = 2880px (`progress: 0.943`).
+     - Rider stops right before the house porch: desktop `progress: 0.943` (Y = 2880px), mobile `progress: 0.968` (Y = 2954px).
   5. **Celebration Modal Overlay (`#finale-brand-overlay`)**:
      - Appears as user scrolls into the final dwell section (`progress >= 0.88`).
      - Displays "Order Arrived • Delivered in 14 mins!", promotional chips, and "Download App" CTA.
@@ -92,7 +92,7 @@ The entire landing page is structured as a continuous vertical journey on a vibr
 ### 3.3 Finale & Call to Action
 - **Location**: `src/App.tsx` (`#finale`)
 - **Key Elements**:
-  - Customer house 3D illustration (`src/assets/house.png`).
+  - Customer house 3D illustration (`src/assets/house.webp`).
   - Conversion headline and value proposition.
   - Interactive buttons:
     - "Download App" button: triggers promo code alert dialog.
