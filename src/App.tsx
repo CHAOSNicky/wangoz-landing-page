@@ -189,17 +189,17 @@ function App() {
             />
           </div>
 
-          {/* ─── Zone 2: Content centered in remaining space ─── */}
-          <div className="flex-1 w-full max-w-2xl flex flex-col justify-center items-center text-center">
+          {/* ─── Zone 2: Content spread across remaining space ─── */}
+          <div className="flex-1 w-full max-w-2xl flex flex-col justify-evenly items-center text-center py-4 sm:py-6">
             {/* Headline */}
-            <h1 ref={heroTitleRef} className="hero-tagline px-2 mb-2 sm:mb-3">
+            <h1 ref={heroTitleRef} className="hero-tagline px-2">
               Anything. Delivered.
               <br />
               <span className="hero-tagline-accent">In Minutes.</span>
             </h1>
 
             {/* Subtitle */}
-            <p ref={heroSubRef} className="hero-subtitle px-4 max-w-lg leading-relaxed text-neutral-700 text-sm sm:text-base md:text-lg mb-5 sm:mb-7">
+            <p ref={heroSubRef} className="hero-subtitle px-4 max-w-lg leading-relaxed text-neutral-700 text-sm sm:text-base md:text-lg">
               Food, groceries, and medicines — delivered to your door faster than
               you can say <strong>"Wangoz"</strong>.
             </p>
