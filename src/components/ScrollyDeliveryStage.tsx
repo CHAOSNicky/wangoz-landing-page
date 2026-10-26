@@ -41,15 +41,15 @@ function ServiceFeatureCard({ id, stop, className = '' }: ServiceFeatureCardProp
     stop.id === 'restaurant'
       ? ['⚡ 15-Min Prep', '🔥 Zero Surge Fee']
       : stop.id === 'grocery'
-      ? ['🥬 Farm-Fresh', '⚡ 15-Min Slots']
-      : ['🛡️ Verified Rx', '⚡ 24/7 Dispatch'];
+        ? ['🥬 Farm-Fresh', '⚡ 15-Min Slots']
+        : ['🛡️ Verified Rx', '⚡ 24/7 Dispatch'];
 
   const shortTitle =
     stop.id === 'restaurant'
       ? 'Hot Kitchen Favorites'
       : stop.id === 'grocery'
-      ? 'Daily Fresh Groceries'
-      : 'Urgent Care & Meds';
+        ? 'Daily Fresh Groceries'
+        : 'Urgent Care & Meds';
 
   const cleanCategory =
     stop.badge.split('•')[1]?.trim() || stop.badge;
@@ -931,68 +931,74 @@ export function ScrollyDeliveryStage() {
           id="finale-brand-overlay"
           className="absolute inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-8 bg-neutral-950/45 backdrop-blur-md opacity-0 pointer-events-none"
         >
-          <div className="relative w-[88%] sm:w-full max-w-[380px] sm:max-w-[420px] bg-white/98 backdrop-blur-2xl rounded-[2.5rem] py-8 sm:py-10 px-6 sm:px-7 text-center flex flex-col items-center border border-white/80 shadow-[0_24px_60px_-12px_rgba(0,0,0,0.22),0_10px_24px_-6px_rgba(43,95,224,0.18)]">
-            {/* 3D Brand Logo */}
-            <img
-              src={logoImg}
-              alt="Wangoz"
-              className="w-36 sm:w-40 mb-4 drop-shadow-[0_12px_24px_rgba(43,95,224,0.22)] hover:scale-105 transition-transform duration-300"
-            />
-
-            {/* Clean Status Pill */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-50 border border-emerald-200/80 text-emerald-700 text-xs font-bold tracking-tight mb-3">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span>Order Arrived • Delivered in 14 mins!</span>
+          <div className="relative w-[88%] sm:w-full max-w-[350px] sm:max-w-[380px] h-[400px] sm:h-[450px] max-h-[85vh] bg-white/98 backdrop-blur-2xl rounded-[2.75rem] py-4.5 sm:py-5.5 px-5 sm:px-7 text-center flex flex-col items-center justify-between border border-white/80 shadow-[0_28px_70px_-12px_rgba(0,0,0,0.28),0_12px_32px_-6px_rgba(43,95,224,0.22)]">
+            {/* 1. 3D Brand Logo (Enlarged) */}
+            <div className="pt-1 shrink-0">
+              <img
+                src={logoImg}
+                alt="Wangoz"
+                className="w-42 sm:w-48 drop-shadow-[0_12px_24px_rgba(43,95,224,0.24)] hover:scale-105 transition-transform duration-300"
+              />
             </div>
 
-            {/* Headline */}
-            <h2 className="text-2xl sm:text-3xl font-black text-neutral-900 mb-2 leading-tight tracking-tight">
-              Ready to <span className="text-[#2B5FE0]">Wangoz?</span>
-            </h2>
+            {/* 2. Message Cluster: Distinctly wider space between sentences */}
+            <div className="flex flex-col items-center w-full px-1 shrink-0 gap-y-5 sm:gap-y-6">
+              {/* Status Pill */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200/90 text-emerald-700 text-xs font-bold tracking-tight shadow-2xs">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span>Order Arrived • Delivered in 14 mins!</span>
+              </div>
 
-            {/* Subtitle */}
-            <p className="text-xs sm:text-sm text-neutral-500 max-w-[280px] sm:max-w-xs leading-relaxed mb-5">
-              Hot meals, daily groceries &amp; urgent care supplies delivered directly to your doorstep.
-            </p>
+              {/* Headline */}
+              <h2 className="text-2xl sm:text-[1.85rem] font-black text-neutral-900 leading-snug tracking-tight">
+                Ready to <span className="text-[#2B5FE0]">Wangoz?</span>
+              </h2>
 
-            {/* 3 Lightweight Value Chips (No heavy boxes/tables) */}
-            <div className="flex items-center justify-center gap-2 w-full mb-6">
-              <span className="px-3 py-1.5 rounded-full bg-neutral-100/90 border border-neutral-200/60 text-[11px] sm:text-xs font-bold text-neutral-700 flex items-center gap-1 shadow-2xs">
-                <span>⚡</span> 14 Mins
-              </span>
-              <span className="px-3 py-1.5 rounded-full bg-emerald-50 border border-emerald-200/60 text-[11px] sm:text-xs font-bold text-emerald-700 flex items-center gap-1 shadow-2xs">
-                <span>✓</span> At Door
-              </span>
-              <span className="px-3 py-1.5 rounded-full bg-blue-50 border border-blue-200/60 text-[11px] sm:text-xs font-bold text-[#2B5FE0] flex items-center gap-1 shadow-2xs">
-                ₹0 Delivery
-              </span>
+              {/* Subtitle */}
+              <p className="text-xs sm:text-sm text-neutral-500 max-w-[270px] sm:max-w-xs leading-relaxed">
+                Hot meals, daily groceries &amp; urgent care supplies delivered directly to your doorstep.
+              </p>
+
+              {/* 3 Lightweight Value Chips */}
+              <div className="flex items-center justify-center gap-2 w-full pt-0.5">
+                <span className="px-3.5 py-1.5 rounded-full bg-neutral-100/90 border border-neutral-200/70 text-[11px] sm:text-xs font-bold text-neutral-700 flex items-center gap-1.5 shadow-2xs">
+                  <span>⚡</span> 14 Mins
+                </span>
+                <span className="px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200/70 text-[11px] sm:text-xs font-bold text-emerald-700 flex items-center gap-1.5 shadow-2xs">
+                  <span>✓</span> At Door
+                </span>
+                <span className="px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/70 text-[11px] sm:text-xs font-bold text-[#2B5FE0] flex items-center gap-1.5 shadow-2xs">
+                  ₹0 Delivery
+                </span>
+              </div>
             </div>
 
-            {/* Primary CTA Button: BIG Centered Download App Button */}
-            <button
-              id="finale-download-btn"
-              onClick={() => {
-                alert(
-                  'Welcome to Wangoz! First delivery promo code WANGOZFREE applied to your app.'
-                );
-              }}
-              className="w-full py-4 sm:py-4.5 px-6 rounded-2xl font-black text-white text-base sm:text-lg bg-gradient-to-r from-[#2B5FE0] via-[#3567E8] to-[#2B5FE0] hover:brightness-105 active:scale-[0.98] shadow-[0_12px_28px_-4px_rgba(43,95,224,0.45)] hover:shadow-[0_16px_32px_-4px_rgba(43,95,224,0.55)] transition-all flex items-center justify-center gap-2.5 cursor-pointer mb-4"
-            >
-              <Smartphone size={22} className="text-white shrink-0" strokeWidth={2.4} />
-              <span className="tracking-tight">Download App</span>
-            </button>
+            {/* 3. Actions: Taller Download App Button with side spacing + Dismiss Link */}
+            <div className="w-full flex flex-col items-center gap-2.5 pb-0.5 shrink-0">
+              <button
+                id="finale-download-btn"
+                onClick={() => {
+                  alert(
+                    'Welcome to Wangoz! First delivery promo code WANGOZFREE applied to your app.'
+                  );
+                }}
+                className="w-[84%] sm:w-[82%] py-4.5 sm:py-5 min-h-[54px] sm:min-h-[58px] px-6 rounded-2xl font-black text-white text-base sm:text-lg bg-gradient-to-r from-[#2B5FE0] via-[#3567E8] to-[#2B5FE0] hover:brightness-105 active:scale-[0.98] shadow-[0_12px_26px_-4px_rgba(43,95,224,0.42)] hover:shadow-[0_16px_30px_-4px_rgba(43,95,224,0.52)] transition-all flex items-center justify-center gap-2.5 cursor-pointer"
+              >
+                <Smartphone size={22} className="text-white shrink-0" strokeWidth={2.4} />
+                <span className="tracking-tight">Download App</span>
+              </button>
 
-            {/* Dismiss link to view footer */}
-            <button
-              onClick={() => {
-                const overlay = document.getElementById('finale-brand-overlay');
-                if (overlay) gsap.to(overlay, { opacity: 0, pointerEvents: 'none', duration: 0.3 });
-              }}
-              className="py-1 px-3 text-xs font-semibold text-neutral-400 hover:text-neutral-700 transition-colors cursor-pointer flex items-center gap-1"
-            >
-              <span>Continue scrolling to footer</span>
-              <span>↓</span>
-            </button>
+              <button
+                onClick={() => {
+                  const overlay = document.getElementById('finale-brand-overlay');
+                  if (overlay) gsap.to(overlay, { opacity: 0, pointerEvents: 'none', duration: 0.3 });
+                }}
+                className="py-1 px-3 text-xs font-semibold text-neutral-400 hover:text-neutral-700 transition-colors cursor-pointer flex items-center gap-1"
+              >
+                <span>Continue scrolling to footer</span>
+                <span>↓</span>
+              </button>
+            </div>
           </div>
         </div>
 
