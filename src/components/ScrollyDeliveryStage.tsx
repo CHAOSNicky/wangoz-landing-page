@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
@@ -127,6 +127,21 @@ export function ScrollyDeliveryStage() {
   const [activeStepIndex, setActiveStepIndex] = useState<number>(0);
   const [scrollPercent, setScrollPercent] = useState<number>(0);
   const [isStageActive, setIsStageActive] = useState<boolean>(false);
+
+  // Fix first-load mobile alignment: refresh ScrollTrigger after all resources
+  // (images, fonts) are fully loaded so GSAP recalculates positions correctly.
+  useEffect(() => {
+    const handleLoad = () => {
+      ScrollTrigger.refresh(true);
+    };
+    if (document.readyState === 'complete') {
+      // Already loaded — still defer by one frame so layout is painted
+      requestAnimationFrame(() => ScrollTrigger.refresh(true));
+    } else {
+      window.addEventListener('load', handleLoad, { once: true });
+    }
+    return () => window.removeEventListener('load', handleLoad);
+  }, []);
 
   /* ══════════════════════════════════════════════════════════════
      GSAP useGSAP() Hook: ScrollTrigger + MotionPathPlugin Timeline
@@ -647,7 +662,7 @@ export function ScrollyDeliveryStage() {
           className="absolute top-0 left-0 w-full h-[3200px] pointer-events-auto will-change-transform flex justify-center"
         >
           {/* Centered responsive inner stage */}
-          <div className="relative w-full max-w-[600px] h-[3200px] overflow-visible mx-auto px-2 sm:px-4">
+          <div className="relative w-full max-w-[600px] h-[3200px] overflow-visible mx-auto">
             {/* ── Vertical S-Curve Road (SVG viewBox="0 0 600 3200") ── */}
             <svg
               viewBox="0 0 600 3200"
@@ -818,10 +833,11 @@ export function ScrollyDeliveryStage() {
 
             {/* ── Parallel HTML 3D Stores in the Middle of Road & Information Cards ── */}
 
-            {/* Stop 1 — Restaurant (Road curve at X = 165px, Y = 950px, Bigger 3D Logo) */}
+            {/* Stop 1 — Restaurant (Road curve at SVG X=165/600=27.5%, Y=950px) */}
             <div
               id="store-restaurant"
-              className="absolute top-[930px] -translate-y-1/2 left-[27.5%] -translate-x-1/2 z-20 flex flex-col items-center pointer-events-none opacity-0 select-none w-max"
+              className="absolute z-20 flex flex-col items-center pointer-events-none opacity-0 select-none w-max"
+              style={{ top: '930px', left: 'calc(165 / 600 * 100%)', transform: 'translate(-50%, -50%)' }}
             >
               <div className="mb-2 sm:mb-2.5 flex items-center gap-1.5 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-white/95 backdrop-blur-md shadow-md border border-orange-200">
                 <span className="w-2 h-2 rounded-full bg-[#FF6B35] animate-pulse" />
@@ -841,7 +857,7 @@ export function ScrollyDeliveryStage() {
               className="top-[950px] -translate-y-1/2 right-2 sm:right-4 md:right-5 w-[46%] sm:w-[42%] max-w-[230px] sm:max-w-[280px] md:max-w-[300px]"
             />
 
-            {/* Stop 2 — Grocery (Road curve at X = 435px, Y = 1700px, Bigger 3D Logo) */}
+            {/* Stop 2 — Grocery (Road curve at SVG X=435/600=72.5%, Y=1700px) */}
             <ServiceFeatureCard
               id="card-grocery"
               stop={deliveryStops[1]}
@@ -849,7 +865,8 @@ export function ScrollyDeliveryStage() {
             />
             <div
               id="store-grocery"
-              className="absolute top-[1680px] -translate-y-1/2 left-[72.5%] -translate-x-1/2 z-20 flex flex-col items-center pointer-events-none opacity-0 select-none w-max"
+              className="absolute z-20 flex flex-col items-center pointer-events-none opacity-0 select-none w-max"
+              style={{ top: '1680px', left: 'calc(435 / 600 * 100%)', transform: 'translate(-50%, -50%)' }}
             >
               <div className="mb-2 sm:mb-2.5 flex items-center gap-1.5 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-white/95 backdrop-blur-md shadow-md border border-emerald-200">
                 <span className="w-2 h-2 rounded-full bg-[#2ECC71] animate-pulse" />
@@ -864,10 +881,11 @@ export function ScrollyDeliveryStage() {
               />
             </div>
 
-            {/* Stop 3 — Medical (Road curve at X = 165px, Y = 2450px, Bigger 3D Logo) */}
+            {/* Stop 3 — Medical (Road curve at SVG X=165/600=27.5%, Y=2450px) */}
             <div
               id="store-medical"
-              className="absolute top-[2430px] -translate-y-1/2 left-[27.5%] -translate-x-1/2 z-20 flex flex-col items-center pointer-events-none opacity-0 select-none w-max"
+              className="absolute z-20 flex flex-col items-center pointer-events-none opacity-0 select-none w-max"
+              style={{ top: '2430px', left: 'calc(165 / 600 * 100%)', transform: 'translate(-50%, -50%)' }}
             >
               <div className="mb-2 sm:mb-2.5 flex items-center gap-1.5 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-white/95 backdrop-blur-md shadow-md border border-teal-200">
                 <span className="w-2 h-2 rounded-full bg-[#14B8A6] animate-pulse" />
@@ -887,10 +905,11 @@ export function ScrollyDeliveryStage() {
               className="top-[2450px] -translate-y-1/2 right-2 sm:right-4 md:right-5 w-[46%] sm:w-[42%] max-w-[230px] sm:max-w-[280px] md:max-w-[300px]"
             />
 
-            {/* Stop 4 — Customer House (Road end at X = 300px, Y = 3050px, Bigger 3D Logo) */}
+            {/* Stop 4 — Customer House (Road end at SVG X=300/600=50%, Y=3050px) */}
             <div
               id="store-house"
-              className="absolute top-[3050px] -translate-y-1/2 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center pointer-events-none opacity-0 select-none"
+              className="absolute z-20 flex flex-col items-center pointer-events-none opacity-0 select-none"
+              style={{ top: '3050px', left: '50%', transform: 'translate(-50%, -50%)' }}
             >
               <img
                 src={houseImg}
