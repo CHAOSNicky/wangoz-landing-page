@@ -839,7 +839,7 @@ export function ScrollyDeliveryStage() {
               className="absolute z-20 flex flex-col items-center pointer-events-none opacity-0 select-none w-max"
               style={{ top: '930px', left: 'calc(165 / 600 * 100%)', transform: 'translate(-50%, -50%)' }}
             >
-              <div className="mb-2 sm:mb-2.5 flex items-center gap-1.5 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-white/95 backdrop-blur-md shadow-md border border-orange-200">
+              <div className="mb-0 flex items-center gap-1.5 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-white/95 backdrop-blur-md shadow-md border border-orange-200">
                 <span className="w-2 h-2 rounded-full bg-[#FF6B35] animate-pulse" />
                 <span className="text-[10px] sm:text-xs font-extrabold text-[#FF6B35] tracking-wider uppercase">
                   HOT KITCHENS
@@ -868,7 +868,7 @@ export function ScrollyDeliveryStage() {
               className="absolute z-20 flex flex-col items-center pointer-events-none opacity-0 select-none w-max"
               style={{ top: '1680px', left: 'calc(435 / 600 * 100%)', transform: 'translate(-50%, -50%)' }}
             >
-              <div className="mb-2 sm:mb-2.5 flex items-center gap-1.5 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-white/95 backdrop-blur-md shadow-md border border-emerald-200">
+              <div className="mb-0 flex items-center gap-1.5 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-white/95 backdrop-blur-md shadow-md border border-emerald-200">
                 <span className="w-2 h-2 rounded-full bg-[#2ECC71] animate-pulse" />
                 <span className="text-[10px] sm:text-xs font-extrabold text-[#2ECC71] tracking-wider uppercase">
                   FARM GROCERY
@@ -887,7 +887,7 @@ export function ScrollyDeliveryStage() {
               className="absolute z-20 flex flex-col items-center pointer-events-none opacity-0 select-none w-max"
               style={{ top: '2430px', left: 'calc(165 / 600 * 100%)', transform: 'translate(-50%, -50%)' }}
             >
-              <div className="mb-2 sm:mb-2.5 flex items-center gap-1.5 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-white/95 backdrop-blur-md shadow-md border border-teal-200">
+              <div className="mb-0 flex items-center gap-1.5 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-white/95 backdrop-blur-md shadow-md border border-teal-200">
                 <span className="w-2 h-2 rounded-full bg-[#14B8A6] animate-pulse" />
                 <span className="text-[10px] sm:text-xs font-extrabold text-[#14B8A6] tracking-wider uppercase">
                   24/7 MEDS
@@ -916,7 +916,7 @@ export function ScrollyDeliveryStage() {
                 alt="Customer House - Your Doorstep"
                 className="w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[420px] lg:h-[420px] object-contain drop-shadow-[0_26px_50px_rgba(0,0,0,0.25)] transition-transform"
               />
-              <div className="mt-2 sm:mt-3 flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md shadow-md border border-blue-200">
+              <div className="mt-0 flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md shadow-md border border-blue-200">
                 <span className="w-2 h-2 rounded-full bg-[#2B5FE0] animate-pulse" />
                 <span className="text-[10px] sm:text-xs font-extrabold text-[#2B5FE0] tracking-wider uppercase">
                   YOUR DOORSTEP
